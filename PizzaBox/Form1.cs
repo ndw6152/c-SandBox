@@ -39,11 +39,28 @@ namespace PizzaBox
 
         private void PizzaIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            
+            if (e.Button == MouseButtons.Left)
+            {
                 this.Show();
                 this.WindowState = FormWindowState.Normal;
-                Debug.WriteLine("" + this.WindowState);
-            
+            }
         }
+
+
+        #region  MenuItem Actions 
+        private void openMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.Focus();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
+        #endregion
+
+
     }
 }
