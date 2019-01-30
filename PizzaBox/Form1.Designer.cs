@@ -28,66 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pizzaIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // pizzaIcon
+            // button1
             // 
-            this.pizzaIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.pizzaIcon.ContextMenuStrip = this.contextMenuStrip1;
-            this.pizzaIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("pizzaIcon.Icon")));
-            this.pizzaIcon.Text = "PizzaBoxApp";
-            this.pizzaIcon.Visible = true;
-            this.pizzaIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PizzaIcon_MouseClick);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.exitMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 48);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.openToolStripMenuItem.Text = "Open pizza";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
-            // 
-            // exitMenuItem
-            // 
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.exitMenuItem.Text = "Exit";
-            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            this.button1.Location = new System.Drawing.Point(156, 98);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 82);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "ShowToast";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 361);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "PizzaBox";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PizzaForm_Closing);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public System.Windows.Forms.NotifyIcon pizzaIcon;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
-
