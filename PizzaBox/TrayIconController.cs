@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PizzaBox
 {
-    public class TrayIconController
+    public class TrayIconController : ITrayController
     {
         public TrayIconController()
         {

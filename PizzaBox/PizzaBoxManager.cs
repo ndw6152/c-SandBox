@@ -10,31 +10,19 @@ namespace PizzaBox
     /// <summary>
     /// Controller class
     /// </summary>
-    public class PizzaBoxManager : ApplicationContext
+    public class PizzaBoxManager : IPizzaManager
     {
-        private static PizzaBoxManager instance = null;
+        private ITrayController _trayController;
 
-
-
-        private PizzaBoxManager()
+        public  PizzaBoxManager(ITrayController trayController)
         {
-            // http://www.tutorialspanel.com/create-system-tray-icon-windows-forms-application-using-c-vb-net/
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            _trayController = trayController;
         }
 
         private TrayIconController TrayIconController { get; set; }
-        public static PizzaBoxManager GetInstance() { 
-            if(instance == null)
-                return new PizzaBoxManager();
-            return instance;
-        }
-
-
-
-        public void Start()
+ 
+        public void OpenShop()
         {
-            TrayIconController = new TrayIconController();
             Application.Run();
         }
     }
