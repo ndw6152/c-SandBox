@@ -18,8 +18,6 @@ namespace PizzaBox
         {
             _trayController = trayController;
         }
-
-        private TrayIconController TrayIconController { get; set; }
  
         public void OpenShop()
         {

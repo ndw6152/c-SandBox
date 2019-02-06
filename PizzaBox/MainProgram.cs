@@ -11,7 +11,11 @@ namespace PizzaBox
     {
         private static IContainer Container { get; set; }
 
-
+        /// <summary>
+        /// Autofac initilization
+        /// Dependency Inversion tutorial
+        /// https://www.codeproject.com/Articles/495019/Dependency-Inversion-Principle-and-the-Dependency
+        /// </summary>
         private static void Initialize()
         {
             var builder = new ContainerBuilder();

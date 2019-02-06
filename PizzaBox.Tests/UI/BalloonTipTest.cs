@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using PizzaShop;
 
 namespace PizzaBox.Tests.UI
 {
@@ -10,7 +9,6 @@ namespace PizzaBox.Tests.UI
         [Test]
         public void ShowBalloonTest()
         {
-            TrayIconController control = new TrayIconController();
 
         }
     }

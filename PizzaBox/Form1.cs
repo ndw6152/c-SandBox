@@ -1,22 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
+
+using PizzaBox.Providers;
+using PizzaBox.Providers.HeartBeatProvider;
 
 namespace PizzaBox
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private ITrayController _trayController;
+        private IDisposable _subscription;
+        private IProvider<bool> _provider;
+
+        private string _title = "HeartBeat Provider";
+
+        public Form1(ITrayController controller)
         {
             InitializeComponent();
+            _trayController = controller;
+
+            // todo: remove testing a quick provider
+            _provider = new HeartBeatProvider();
         }
 
 
@@ -43,6 +49,25 @@ namespace PizzaBox
         private void ToastActivated(ToastNotification sender, object e)
         {
             
+        }
+
+
+
+        private void checkBox_heartBeat_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+            if(this.checkBox_heartBeat.Checked)
+            {
+            _subscription = _provider.Data.Subscribe(onNext: (x) => { if (x) _trayController.ShowBalloonTip(_title, "True"); else _trayController.ShowBalloonTip(_title, "False"); },
+                                                     onCompleted: () => { },
+                                                     onError: (x) => { });
+            }
+            else
+            {
+                _subscription.Dispose();
+                _provider.EnablePolling(4000);
+            }
         }
     }
 }

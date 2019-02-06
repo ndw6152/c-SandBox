@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PizzaBox
+namespace PizzaBox.Providers
 {
-    public interface ITrayController
+    interface IProvider<T>
     {
-        void ShowBalloonTip(string title, string msg);
+        IObservable<T> Data { get; }
+
+        bool EnablePolling(int rate);
     }
 }

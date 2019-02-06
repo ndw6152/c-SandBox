@@ -33,38 +33,34 @@ namespace PizzaBox
             TrayIcon.BalloonTipClicked += new EventHandler(BalloonTipOnClick);
         }
 
-
-
         private void InitContextMenu()
         {
         }
 
-        private void ShowBaloonTip(String msg)
+        public  void ShowBalloonTip(string title, string msg)
         {
             TrayIcon.BalloonTipIcon = ToolTipIcon.None;
             TrayIcon.BalloonTipText = "" + msg;
-            TrayIcon.BalloonTipTitle = "Welcome Message";
+            TrayIcon.BalloonTipTitle = title;
             TrayIcon.ShowBalloonTip(2000);
         }
 
         #region  Event Handlers
         private void BalloonTipOnClick(object sender, EventArgs e)
         {
-            ShowBaloonTip("balloon clicked");
+            ShowBalloonTip("Hello World", "balloon clicked");
         }
 
         private void TrayIconSingleClick(object Sender, MouseEventArgs e)
         {
             if(e.Button.Equals(MouseButtons.Left)) 
             {
-                Form1 window = new Form1();
+                Form1 window = new Form1(this);
                 window.Show();
-
-
             }
             else
             {
-                ShowBaloonTip("Right Click");
+                ShowBalloonTip("Hello World", "Right Click");
             }
 
         }
